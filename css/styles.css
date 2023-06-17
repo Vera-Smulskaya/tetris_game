@@ -1,5 +1,20 @@
 :root {
-  --main-background: white;
+  --c-text-main: #111111;
+  --c-text-secondary: #ffffff;
+  --c-accent: #fd9222;
+  --bgc-body: #fafafa;
+  --bgc-dark: #1e1823;
+  --bgc-light-button: #fcf1e0;
+  --bgc-slider-dots: rgba(17, 17, 17, 0.1);
+  --transition-brd: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-c: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bgc: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-box-shadow: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-opacity: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-visibility: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fill: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-stroke: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -50,4 +65,186 @@ img {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-bolditalic.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media screen and (max-width: 374.98px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 767.98px) {
+  .container {
+    width: 375px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199.98px) {
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+    padding: 0 32px;
+  }
+}
+
+.advantages {
+  background-color: var(--bgc-dark);
+}
+
+.advantages__item {
+  width: 308px;
+}
+
+.advantages__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 365px;
+  margin-bottom: 22px;
+  color: var(--c-accent);
+}
+
+.advantages__svg {
+  fill: currentColor;
+}
+
+.advantages__subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--c-text-secondary);
+  margin-bottom: 18px;
+}
+
+.advantages__desc {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 374.98px) {
+  .advantages {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .advantages__item {
+    max-width: 250px;
+    margin-bottom: 20px;
+  }
+
+  .advantages__item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767.98px) {
+  .advantages {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .advantages__item {
+    margin-bottom: 20px;
+    min-height: 244px;
+  }
+
+  .advantages__item:last-child {
+    margin-bottom: 0;
+    min-height: 225px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199.98px) {
+  .advantages {
+    padding-top: 50px;
+    padding-bottom: 85px;
+  }
+
+  .advantages__list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    column-gap: 60px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .advantages {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .advantages .container {
+    padding: 0 50px;
+  }
+
+  .advantages__list {
+    display: flex;
+    justify-content: center;
+    gap: 88px;
+  }
+  .advantages__item {
+    position: relative;
+  }
+
+  .advantages__item:not(:last-child):after {
+    position: absolute;
+    top: 54px;
+    right: -18px;
+    content: "";
+    width: 0;
+    height: 124px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
 }
