@@ -63,6 +63,25 @@
       </ul>
     </div>
   </section>
+
+  <div class="review-modal">
+    <div class="review-modal__inner">
+      <button class="review-modal__close" type="button">
+        <svg class="review-modal__icon">
+          <use href="./images/sprite.svg#icon-close-modal"></use>
+        </svg>
+      </button>
+      <h2 class="review-modal__title">LEAVE A REVIEW ABOUT<span>&nbsp;OUR CHOCOLATE</span></h2>
+      <form class="review-modal__form review-form">
+        <input type="text" id="user-name-review" name="user-name-review" class="review-form__name">
+        <input type="email" id="user-email-review" name="user-email-review" class="review-form__email">
+        <input type="tel" id="user-phone-review" name="user-phone-review" class="review-form__phone">
+        <textarea name="user-comment-review" id="user-comment-review" class="review-form__message"
+          placeholder="Text input"></textarea>
+        <button type="submit" class="review-form__submit">Send</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
