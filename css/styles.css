@@ -339,8 +339,55 @@ img {
   height: 66px;
   border: 1.5px solid rgba(17, 17, 17, 0.05);
   border-radius: 13px;
-  padding-left: 22px 24px;
+  padding: 22px 24px;
   background-color: transparent;
   outline: transparent;
   transition: border-color var(--transition-duration-and-func);
+}
+
+.review-form__input:focus {
+  outline: none;
+  border-color: var(--c-accent);
+}
+
+.review-form__input::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 0.3);
+}
+
+.review-form__message {
+  display: block;
+  width: 100%;
+  height: 137px;
+  padding: 22px 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 0.3);
+  border: 1.5px solid rgba(17, 17, 17, 0.05);
+  border-radius: 13px;
+  margin-bottom: 18px;
+  outline: transparent;
+  resize: none;
+  transition: var(--transition-brd);
+}
+
+.review-form__message:focus {
+  outline: none;
+  border-color: var(--c-accent);
+}
+
+.review-form__message::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  color: rgba(64, 64, 64, 0.3);
 }
