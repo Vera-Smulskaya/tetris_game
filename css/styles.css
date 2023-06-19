@@ -370,6 +370,7 @@ img {
   line-height: 22px;
   letter-spacing: -0.02em;
   color: rgba(64, 64, 64, 0.3);
+  background-color: transparent;
   border: 1.5px solid rgba(17, 17, 17, 0.05);
   border-radius: 13px;
   margin-bottom: 18px;
@@ -393,11 +394,11 @@ img {
 }
 
 .review-form__submit {
-  font-weight: 500;
-  font-size: var(--main-font-size);
-  line-height: var(--main-line-height);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
   color: var(--c-text-secondary);
-  letter-spacing: 0.04em;
   font-family: inherit;
   background-color: var(--c-accent);
   cursor: pointer;
@@ -416,10 +417,56 @@ img {
   background-color: var(--bgc-light-button);
 }
 
+/* INPUT-EMAIL */
+
+.review-modal__container-form {
+  position: relative;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.review-modal__icon-input {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.review-modal__icon-text {
+  position: absolute;
+  top: 50%;
+  left: 74px;
+  transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+.review-modal__icon-text::after {
+  display: block;
+  margin-left: 32px;
+  content: "";
+  height: 32px;
+  border: 1px solid rgba(64, 64, 64, 0.3);
+}
+
+.review-form__input_phone {
+  padding: 21px 23px 21px 177px;
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 767.98px) {
   .review-modal__inner {
-    min-width: 311px;
-    min-height: 471px;
+    width: 311px;
+    height: 471px;
   }
 
   .review-modal__inner {
@@ -450,5 +497,12 @@ img {
   .review-form__message::placeholder {
     font-size: 14px;
     line-height: 1.2;
+  }
+
+  .review-form__submit {
+    padding: 12px 428px;
+    display: block;
+    width: 93px;
+    height: 41px;
   }
 }

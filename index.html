@@ -75,12 +75,20 @@
           CHOCOLATE</span></h2>
       <form class="review-modal__form review-form">
         <input type="text" id="user-name-review" name="user-name-review" class="review-form__input" placeholder="Name"
-          pattern="[a-zA-Zа-яА-ЯіІїЇґҐєЄʼ]+"">
+          pattern="[a-zA-Zа-яА-ЯіІїЇґҐєЄʼ]+">
         <input type=" email" id="user-email-review" name="user-email-review" class="review-form__input"
           placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-        <input type="tel" id="user-phone-review" name="user-phone-review"
-          class="review-form__input review-form__input_phone" placeholder="Phone number"
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" title="xxx-xx-xx">
+
+        <div class="review-modal__container-form">
+          <input type="tel" id="user-phone-review" name="user-phone-review"
+            class="review-form__input review-form__input_phone" placeholder="Phone number"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" title="xxx-xx-xx">
+          <svg class="review-modal__icon-input">
+            <use href="./images/sprite.svg#icon-frame"></use>
+          </svg>
+          <span class="review-modal__icon-text">+380</span>
+        </div>
+
         <textarea name="user-comment-review" id="user-comment-review" class="review-form__message"
           placeholder="Enter text"></textarea>
         <button type="submit" class="review-form__submit">Send</button>
