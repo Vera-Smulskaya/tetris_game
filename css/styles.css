@@ -331,7 +331,6 @@ img {
 .review-modal__form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
 }
 
 .review-form__input {
@@ -340,6 +339,7 @@ img {
   border: 1.5px solid rgba(17, 17, 17, 0.05);
   border-radius: 13px;
   padding: 22px 24px;
+  margin-bottom: 18px;
   background-color: transparent;
   outline: transparent;
   transition: border-color var(--transition-duration-and-func);
@@ -390,4 +390,65 @@ img {
   line-height: 22px;
   letter-spacing: -0.02em;
   color: rgba(64, 64, 64, 0.3);
+}
+
+.review-form__submit {
+  font-weight: 500;
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  color: var(--c-text-secondary);
+  letter-spacing: 0.04em;
+  font-family: inherit;
+  background-color: var(--c-accent);
+  cursor: pointer;
+  border-radius: 100px;
+  padding: 14px 40px;
+  display: block;
+  width: 117px;
+  height: 45px;
+  border: none;
+  transition: var(--transition-bgc), var(--transition-c);
+}
+
+.review-form__submit:hover,
+.review-form__submit:focus {
+  color: var(--c-accent);
+  background-color: var(--bgc-light-button);
+}
+
+@media screen and (max-width: 767.98px) {
+  .review-modal__inner {
+    min-width: 311px;
+    min-height: 471px;
+  }
+
+  .review-modal__inner {
+    padding: 32px 24px;
+  }
+
+  .review-modal__title {
+    font-size: 20px;
+    line-height: 1.2;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .review-form__input {
+    height: 45px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+  }
+
+  .review-form__message {
+    height: 91px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .review-form__input::placeholder,
+  .review-form__message::placeholder {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 }
