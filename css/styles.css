@@ -130,6 +130,8 @@ img {
   }
 }
 
+/* SECTION ADVANTAGES  */
+
 .advantages {
   background-color: var(--bgc-dark);
 }
@@ -249,7 +251,7 @@ img {
   }
 }
 
-/* MODAL */
+/*REVIEW MODAL */
 
 .review-modal {
   position: fixed;
@@ -505,4 +507,11 @@ img {
     width: 93px;
     height: 41px;
   }
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  flex-direction: row;
 }
