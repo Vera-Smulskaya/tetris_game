@@ -511,7 +511,46 @@ img {
 
 /* HEADER */
 
-.header {
+.page-header {
   display: flex;
-  flex-direction: row;
+}
+
+.header-nav {
+  display: flex;
+}
+
+.header-nav-list {
+  display: flex;
+}
+
+.header-icon-list {
+  display: flex;
+}
+
+.head-logo-div {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: -0.03em;
+  color: var(--c-text-main);
+}
+
+.head-logo-italic {
+  font-style: italic;
+}
+
+.head-logo-div {
+  margin-right: 188px;
+}
+
+.header-nav-list .header-list-item {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: var(--c-text-main);
 }
