@@ -1,2 +1,3 @@
-# simply-chocolate
-https://www.figma.com/file/nkghl2ny3954fWeEPMuZcm/Simply-Chocolate-(Copy)?type=design&node-id=0-1&t=ZFUs12fx7qfLLq5C-0
+# lection
+
+1. https://www.youtube.com/watch?v=DmP18BpwF8Y&list=PLOlyZEVllXBGidTW1husoRYXj5Yd-RB3q&index=2
