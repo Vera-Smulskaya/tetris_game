@@ -3,7 +3,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(64, 64, 251), rgb(1, 188, 1));
+  background: linear-gradient(90deg, rgb(251, 157, 79), rgb(248, 242, 81));
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -11,15 +11,16 @@ body {
 }
 
 .grid {
-  background: darkblue;
+  background: rgb(26, 26, 116);
   padding: 0.5vh;
   display: grid;
   grid-template-columns: repeat(10, auto);
+  gap: 0.5vh;
 }
 
 .grid > div {
   height: min(4vh, 7vw);
   width: min(4vh, 7vw);
-  background-color: rgba(48, 48, 57, 0.2);
+  background-color: rgba(210, 197, 197, 0.2);
   border: 0.3vh;
 }
