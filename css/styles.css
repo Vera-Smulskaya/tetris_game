@@ -24,3 +24,7 @@ body {
   background-color: rgba(210, 197, 197, 0.2);
   border: 0.3vh;
 }
+
+.grid .O {
+  background-color: aqua;
+}
