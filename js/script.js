@@ -2,6 +2,13 @@ const PLAYFIELD_COLUMNS = 10;
 const PLAYFIELD_ROWS = 20;
 const TETROMINO_NAMES = ["O"];
 
+const TETROMINOES = {
+  O: [
+    [1, 1],
+    [1, 1],
+  ],
+};
+
 function converPositionToIndex(row, column) {
   return row * PLAYFIELD_COLUMNS + column;
 }
@@ -21,10 +28,14 @@ function generatePlayField() {
 }
 
 function generateTetramino() {
-  tetromino = {
-    name: TETROMINO_NAMES[0],
+  const name = TETROMINO_NAMES[0];
+  const matrix = TETROMINOES[name];
+
+  const tetromino = {
+    name,
+    matrix,
     row: 3,
-    column: 5,
+    column: 4,
   };
 }
 
@@ -34,21 +45,45 @@ generateTetramino();
 const cells = document.querySelectorAll(".grid div");
 
 function drawPlayField() {
-  cells[15].classList.add("O");
+  for (let row = 0; row < PLAYFIELD_ROWS; row++) {
+    for (let column = 0; column < PLAYFIELD_COLUMNS; column++) {
+      const name = playfield[row][column];
+      const cellIndex = converPositionToIndex(row, column);
+
+      cells[cellIndex].classList.add(name);
+    }
+  }
 }
 
 function drawTetromino() {
-  for (let row = 0; row < 1; row++) {
-    for (let column = 0; column < 1; column++) {
+  const name = tetromino.name;
+  const tetrominoMatrixSize = tetromino.matrix.length;
+
+  for (let row = 0; row < tetrominoMatrixSize; row++) {
+    for (let column = 0; column < tetrominoMatrixSize; column++) {
       const cellIndex = converPositionToIndex(
         tetromino.row + row,
         tetromino.column + column
       );
 
-      cells[cellIndex].classList.add("O");
+      cells[cellIndex].classList.add(name);
     }
   }
 }
 
 drawTetromino();
 drawPlayField();
+
+document.addEventListener("keydown", onKeyDown);
+function onKeyDown(event) {
+  switch (event.key) {
+    case "ArrowDown":
+      moveTetrominoDown();
+      break;
+  }
+}
+
+function moveTetrominoDown() {
+  tetromino.row += 1;
+  drawTetromino();
+}
