@@ -1,7 +1,6 @@
 const PLAYFIELD_COLUMNS = 10;
 const PLAYFIELD_ROWS = 20;
-const TETROMINO_NAMES = ["O", "J"];
-
+const TETROMINO_NAMES = ["O", "J", "L", "I", "S", "Z", "T"];
 const TETROMINOES = {
   O: [
     [1, 1],
@@ -12,10 +11,36 @@ const TETROMINOES = {
     [1, 1, 1],
     [0, 0, 0],
   ],
+  L: [
+    [0, 0, 1],
+    [1, 1, 1],
+    [0, 0, 0],
+  ],
+  I: [
+    [0, 0, 0, 0],
+    [1, 1, 1, 1],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+  ],
+  S: [
+    [0, 1, 1],
+    [1, 1, 0],
+    [0, 0, 0],
+  ],
+  Z: [
+    [1, 1, 0],
+    [0, 1, 1],
+    [0, 0, 0],
+  ],
+  T: [
+    [1, 1, 1],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
 };
 
 function converPositionToIndex(row, column) {
-  return row * PLAYFIELD_COLUMNS + column;
+  return Math.floor(row * PLAYFIELD_COLUMNS + column);
 }
 
 let playfield;
@@ -33,10 +58,10 @@ function generatePlayField() {
 }
 
 function generateTetramino() {
-  const name = TETROMINO_NAMES[1];
+  const name = TETROMINO_NAMES[6];
   const matrix = TETROMINOES[name];
 
-  const tetromino = {
+  tetromino = {
     name,
     matrix,
     row: 3,

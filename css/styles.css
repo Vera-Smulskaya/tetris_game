@@ -32,3 +32,23 @@ body {
 .grid .J {
   background-color: rgb(255, 0, 191);
 }
+
+.grid .L {
+  background-color: rgb(255, 217, 0);
+}
+
+.grid .I {
+  background-color: rgb(20, 237, 103);
+}
+
+.grid .S {
+  background-color: rgb(149, 16, 232);
+}
+
+.grid .Z {
+  background-color: rgb(17, 28, 235);
+}
+
+.grid .T {
+  background-color: rgb(255, 0, 191);
+}
