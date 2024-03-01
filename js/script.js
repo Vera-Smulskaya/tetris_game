@@ -140,8 +140,30 @@ function moveTetrominoDown() {
 
 function moveTetrominoLeft() {
   tetromino.column -= 1;
+  if (!isValid()) {
+    tetromino.column += 1;
+  }
 }
 
 function moveTetrominoRight() {
   tetromino.column += 1;
+  if (!isValid()) {
+    tetromino.column -= 1;
+  }
+}
+
+function isValid() {
+  const matrixSize = tetromino.matrix.length;
+  for (let row = 0; row < matrixSize; row++) {
+    for (let column = 0; column < matrixSize; column++) {
+      if (isOutsideOfGameboard(row, column)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function isOutsideOfGameboard(row, column) {
+  return tetromino.column + column < 0 || tetromino.column >= PLAYFIELD_COLUMNS;
 }
