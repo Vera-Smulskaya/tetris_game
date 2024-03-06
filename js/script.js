@@ -136,6 +136,9 @@ function onKeyDown(event) {
 
 function moveTetrominoDown() {
   tetromino.row += 1;
+  if (!isValid()) {
+    tetromino.row -= 1;
+  }
 }
 
 function moveTetrominoLeft() {
@@ -165,5 +168,9 @@ function isValid() {
 }
 
 function isOutsideOfGameboard(row, column) {
-  return tetromino.column + column < 0 || tetromino.column >= PLAYFIELD_COLUMNS;
+  return (
+    tetromino.column + column < 0 ||
+    tetromino.column + column >= PLAYFIELD_COLUMNS ||
+    tetromino.row + row >= playfield.length
+  );
 }
