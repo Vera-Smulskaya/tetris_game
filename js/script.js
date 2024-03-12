@@ -62,7 +62,7 @@ function generatePlayField() {
     .map(() => new Array(PLAYFIELD_COLUMNS).fill(0));
 }
 
-function generateTetramino() {
+function generateTetromino() {
   const name = getRandomElement(TETROMINO_NAMES);
   const matrix = TETROMINOES[name];
   const column = PLAYFIELD_COLUMNS / 2 - Math.floor(matrix.length / 2);
@@ -75,8 +75,19 @@ function generateTetramino() {
   };
 }
 
+function placeTetromino() {
+  const matrixSize = tetromino.matrix.length;
+  for (let row = 0; row < matrixSize; row++) {
+    for (let column = 0; column < matrixSize; column++) {
+      playfield[tetromino.row + row][tetromino.column + column] =
+        tetromino.name;
+    }
+  }
+  generateTetromino();
+}
+
 generatePlayField();
-generateTetramino();
+generateTetromino();
 
 const cells = document.querySelectorAll(".grid div");
 
@@ -138,6 +149,7 @@ function moveTetrominoDown() {
   tetromino.row += 1;
   if (!isValid()) {
     tetromino.row -= 1;
+    placeTetromino();
   }
 }
 
@@ -159,7 +171,11 @@ function isValid() {
   const matrixSize = tetromino.matrix.length;
   for (let row = 0; row < matrixSize; row++) {
     for (let column = 0; column < matrixSize; column++) {
+      // if (tetromino.matrix[row][column]) continue;
       if (isOutsideOfGameboard(row, column)) {
+        return false;
+      }
+      if (hasCollisions(row, column)) {
         return false;
       }
     }
@@ -173,4 +189,8 @@ function isOutsideOfGameboard(row, column) {
     tetromino.column + column >= PLAYFIELD_COLUMNS ||
     tetromino.row + row >= playfield.length
   );
+}
+
+function hasCollisions(row, column) {
+  return playfield[tetromino.row + row][tetromino.column + column];
 }
