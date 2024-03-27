@@ -132,6 +132,9 @@ draw();
 document.addEventListener("keydown", onKeyDown);
 function onKeyDown(event) {
   switch (event.key) {
+    case "ArrowUp":
+      rotate();
+      break;
     case "ArrowDown":
       moveTetrominoDown();
       break;
@@ -143,6 +146,26 @@ function onKeyDown(event) {
       break;
   }
   draw();
+}
+
+let showRotated = [];
+
+function rotateTetromino() {
+  const oldMatrix = tetromino.matrix;
+  const rotatedMatrix = rotateMatrix(tetromino.matrix);
+  tetromino.matrix = rotatedMatrix;
+}
+
+function rotateMatrix(matrixTetromino) {
+  const N = matrixTetromino.length;
+  const rotateMatrix = [];
+  for (let i = 0; i < N; i++) {
+    rotateMatrix[i] = [];
+    for (let j = 0; j < N; j++) {
+      rotateMatrix[i][j] = matrixTetromino[N - j - 1][i];
+    }
+  }
+  return rotateMatrix;
 }
 
 function moveTetrominoDown() {
