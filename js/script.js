@@ -110,13 +110,18 @@ function drawTetromino() {
 
   for (let row = 0; row < tetrominoMatrixSize; row++) {
     for (let column = 0; column < tetrominoMatrixSize; column++) {
-      if (!tetromino.matrix[row][column]) continue;
+      // result working of function rotateMatrix():
+      // const cellIndex = converPositionToIndex(
+      //   tetromino.row + row,
+      //   tetromino.column + column
+      // );
+      // cells[cellIndex].innerHTML = showRotated[row][column];
 
+      if (!tetromino.matrix[row][column]) continue;
       const cellIndex = converPositionToIndex(
         tetromino.row + row,
         tetromino.column + column
       );
-
       cells[cellIndex].classList.add(name);
     }
   }
@@ -127,7 +132,25 @@ function draw() {
   drawPlayField();
   drawTetromino();
 }
+let showRotated = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+function rotateTetromino() {
+  const oldMatrix = tetromino.matrix;
+  const rotatedMatrix = rotateMatrix(tetromino.matrix);
+  showRotated = rotateMatrix(tetromino.matrix);
+  tetromino.matrix = rotatedMatrix;
+}
+
 draw();
+
+function rotate() {
+  rotateTetromino();
+  draw();
+}
 
 document.addEventListener("keydown", onKeyDown);
 function onKeyDown(event) {
@@ -146,14 +169,6 @@ function onKeyDown(event) {
       break;
   }
   draw();
-}
-
-let showRotated = [];
-
-function rotateTetromino() {
-  const oldMatrix = tetromino.matrix;
-  const rotatedMatrix = rotateMatrix(tetromino.matrix);
-  tetromino.matrix = rotatedMatrix;
 }
 
 function rotateMatrix(matrixTetromino) {
