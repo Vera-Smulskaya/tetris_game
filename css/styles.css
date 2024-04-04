@@ -10,6 +10,15 @@ body {
   align-items: center;
 }
 
+.container {
+  border: 10px solid rgba(255, 18, 18);
+  margin-left: 100px;
+  border-radius: 30px;
+  padding: 100px;
+  font-size: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .grid {
   background: rgb(26, 26, 116);
   padding: 0.5vh;
