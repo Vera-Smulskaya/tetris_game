@@ -212,6 +212,28 @@ function moveTetrominoRight() {
   }
 }
 
+function moveDown() {
+  moveTetrominoDown();
+  draw();
+  stopLoop();
+  startLoop();
+}
+
+let timeId = null;
+
+moveDown();
+
+function startLoop() {
+  setInterval(() => {
+    timeId = requestAnimationFrame();
+  }, 700);
+}
+
+function stopLoop() {
+  cancelAnimationFrame(timeId);
+  timeId = clearTimeout(timeId);
+}
+
 function isValid() {
   const matrixSize = tetromino.matrix.length;
   for (let row = 0; row < matrixSize; row++) {
