@@ -224,8 +224,8 @@ let timeId = null;
 moveDown();
 
 function startLoop() {
-  setInterval(() => {
-    timeId = requestAnimationFrame();
+  setTimeout(() => {
+    timeId = requestAnimationFrame(moveDown);
   }, 700);
 }
 
