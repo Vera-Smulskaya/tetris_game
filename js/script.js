@@ -86,7 +86,41 @@ function placeTetromino() {
       }
     }
   }
+
+  const filledRows = findFilledRows();
+  removeFillRows(filledRows);
   generateTetromino();
+}
+
+function removeFillRows(filledRows) {
+  for (let i = 0; i < filledRows.length; i++) {
+    const row = filledRows[i];
+    dropRowsAbove(row);
+  }
+}
+
+function dropRowsAbove(rowDelete) {
+  for (let row = rowDelete; row > 0; row--) {
+    playfield[row] = playfield[row - 1];
+  }
+  playfield[0] = new Array(PLAYFIELD_COLUMNS).fill(0);
+}
+
+function findFilledRows() {
+  const fillRows = [];
+  for (let row = 0; row < PLAYFIELD_ROWS; row++) {
+    let filledColumns = 0;
+    for (let column = 0; column < PLAYFIELD_COLUMNS; column++) {
+      if (playfield[row][column] != 0) {
+        filledColumns++;
+      }
+    }
+    if (PLAYFIELD_COLUMNS === filledColumns) {
+      fillRows.push(row);
+    }
+  }
+
+  return fillRows;
 }
 
 generatePlayField();
