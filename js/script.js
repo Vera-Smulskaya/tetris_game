@@ -221,7 +221,10 @@ function onKeyDown(e) {
     togglePauseGame();
   }
   if (!isPaused) {
-    switch (event.key) {
+    switch (e.key) {
+      case " ":
+        dropTetrominoDown();
+        break;
       case "ArrowUp":
         rotate();
         break;
@@ -237,6 +240,13 @@ function onKeyDown(e) {
     }
   }
   draw();
+}
+
+function dropTetrominoDown() {
+  while (isValid()) {
+    tetromino.row++;
+  }
+  tetromino.row--;
 }
 
 function rotateMatrix(matrixTetromino) {
@@ -257,6 +267,7 @@ function moveTetrominoDown() {
     tetromino.row -= 1;
     placeTetromino();
   }
+  startLoop();
 }
 
 function moveTetrominoLeft() {
@@ -285,9 +296,11 @@ let timeId = null;
 moveDown();
 
 function startLoop() {
-  timeId = setTimeout(() => {
-    requestAnimationFrame(moveDown);
-  }, 700);
+  if (!timeId) {
+    timeId = setTimeout(() => {
+      requestAnimationFrame(moveDown);
+    }, 700);
+  }
 }
 
 function stopLoop() {
