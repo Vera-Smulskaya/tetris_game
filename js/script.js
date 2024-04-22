@@ -292,7 +292,13 @@ function moveDown() {
 }
 
 let timeId = null;
+const overlay = document.querySelector(".overlay");
 
+function gameOver() {
+  stopLoop();
+  overlay.style.display = "flex";
+}
+gameOver();
 moveDown();
 
 function startLoop() {
