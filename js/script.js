@@ -1,6 +1,14 @@
-const scoreElement = document.querySelector(".score");
 const PLAYFIELD_COLUMNS = 10;
 const PLAYFIELD_ROWS = 20;
+const btnRestart = document.querySelector(".btn-restart");
+const scoreElement = document.querySelector(".score");
+const overlay = document.querySelector(".overlay");
+let isGameOver = false;
+let timeId = null;
+let isPaused = false;
+let playfield;
+let tetromino;
+let score = 0;
 const TETROMINO_NAMES = ["O", "J", "L", "I", "S", "Z", "T"];
 const TETROMINOES = {
   O: [
@@ -40,6 +48,14 @@ const TETROMINOES = {
   ],
 };
 
+init();
+const cells = document.querySelectorAll(".grid div");
+
+function init() {
+  generatePlayField();
+  generateTetromino();
+}
+
 function converPositionToIndex(row, column) {
   return Math.floor(row * PLAYFIELD_COLUMNS + column);
 }
@@ -48,10 +64,6 @@ function getRandomElement(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 }
-
-let playfield;
-let tetromino;
-let score = 0;
 
 function countScore(destroyRows) {
   switch (destroyRows) {
@@ -100,6 +112,11 @@ function placeTetromino() {
   const matrixSize = tetromino.matrix.length;
   for (let row = 0; row < matrixSize; row++) {
     for (let column = 0; column < matrixSize; column++) {
+      if (!isOutsideOfTopboard(row)) {
+        isGameOver = true;
+        return;
+      }
+
       if (tetromino.matrix[row][column]) {
         playfield[tetromino.row + row][tetromino.column + column] =
           tetromino.name;
@@ -143,11 +160,6 @@ function findFilledRows() {
 
   return fillRows;
 }
-
-generatePlayField();
-generateTetromino();
-
-const cells = document.querySelectorAll(".grid div");
 
 function drawPlayField() {
   for (let row = 0; row < PLAYFIELD_ROWS; row++) {
@@ -289,16 +301,16 @@ function moveDown() {
   draw();
   stopLoop();
   startLoop();
-}
 
-let timeId = null;
-const overlay = document.querySelector(".overlay");
+  if (isGameOver) {
+    gameOver();
+  }
+}
 
 function gameOver() {
   stopLoop();
   overlay.style.display = "flex";
 }
-gameOver();
 moveDown();
 
 function startLoop() {
@@ -315,8 +327,6 @@ function stopLoop() {
 
   timeId = null;
 }
-
-let isPaused = false;
 
 function togglePauseGame() {
   if (isPaused === false) {
