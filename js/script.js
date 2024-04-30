@@ -48,16 +48,27 @@ const TETROMINOES = {
   ],
 };
 
+let cells;
 init();
-const cells = document.querySelectorAll(".grid div");
 
 function init() {
+  score = 0;
+  scoreElement.innerHTML = 0;
+  isGameOver = false;
   generatePlayField();
   generateTetromino();
+  cells = document.querySelectorAll(".grid div");
+  moveDown();
 }
 
+btnRestart.addEventListener("click", function () {
+  document.querySelector(".grid").innerHTML = "";
+  overlay.style.display = "none";
+  init();
+});
+
 function converPositionToIndex(row, column) {
-  return Math.floor(row * PLAYFIELD_COLUMNS + column);
+  return row * PLAYFIELD_COLUMNS + column;
 }
 
 function getRandomElement(array) {
@@ -311,7 +322,6 @@ function gameOver() {
   stopLoop();
   overlay.style.display = "flex";
 }
-moveDown();
 
 function startLoop() {
   if (!timeId) {
